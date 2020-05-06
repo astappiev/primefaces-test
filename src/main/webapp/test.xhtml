@@ -14,27 +14,29 @@
 
         <h:form>
             <h:panelGrid columns="1">
-                <p><b>p:selectManyCheckbox</b> works with String[]</p>
+                <p><b>p:selectCheckboxMenu</b> using String[]</p>
 
-                <p:selectManyCheckbox value="#{testView.selectedViaCheckbox}" layout="grid" columns="2">
-                    <f:selectItems value="#{testView.cars}" var="car" itemLabel="#{car}" itemValue="#{car}"/>
-                </p:selectManyCheckbox>
-
-                <p><b>p:selectCheckboxMenu</b> works with String[]</p>
-
-                <p:selectCheckboxMenu value="#{testView.selectedViaMenu}" label="Cars" multiple="true"
+                <p:selectCheckboxMenu value="#{testView.selectedArray}" label="Cars" multiple="true"
                                       filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
                     <f:selectItems value="#{testView.cars}"/>
                 </p:selectCheckboxMenu>
 
-                <p><b>p:autoComplete</b> doesn't works with String[], but only works with List&lt;String&gt;</p>
+                <p><b>p:selectCheckboxMenu</b> using List&lt;String&gt;</p>
 
-                <!-- FIXME: With this value, p:autoComplete is not wokring -->
-                <p:autoComplete minQueryLength="1" value="#{testView.selectedViaAutocomplete}" multiple="true"
-                                completeMethod="#{testView.completeCar}" effect="fade" dropdown="true" rendered="#{false}"/>
+                <p:selectCheckboxMenu value="#{testView.selectedList}" label="Cars" multiple="true"
+                                      filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+                    <f:selectItems value="#{testView.cars}"/>
+                </p:selectCheckboxMenu>
 
-                <p:autoComplete minQueryLength="1" value="#{testView.selectedViaAutocompleteList}" multiple="true"
-                                completeMethod="#{testView.completeCar}" effect="fade" dropdown="true" rendered="#{true}"/>
+                <p><b>p:autoComplete</b> using String[]</p>
+
+                <p:autoComplete minQueryLength="1" value="#{testView.selectedArray}" multiple="true"
+                                completeMethod="#{testView.completeCar}" effect="fade" dropdown="true"/>
+
+                <p><b>p:autoComplete</b> using List&lt;String&gt;</p>
+
+                <p:autoComplete minQueryLength="1" value="#{testView.selectedList}" multiple="true"
+                                completeMethod="#{testView.completeCar}" effect="fade" dropdown="true"/>
 
                 <p:commandButton value="Submit" action="#{testView.save}"/>
             </h:panelGrid>

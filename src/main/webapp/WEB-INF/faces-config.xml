@@ -8,4 +8,28 @@
         <navigation-handler>org.primefaces.application.DialogNavigationHandler</navigation-handler>
         <view-handler>org.primefaces.application.DialogViewHandler</view-handler>
     </application>
+
+    <component>
+        <component-type>org.primefaces.component.AutoComplete</component-type>
+        <component-class>org.primefaces.test.autocomplete.AutoComplete</component-class>
+    </component>
+
+    <component>
+        <component-type>org.primefaces.component.SelectCheckboxMenu</component-type>
+        <component-class>org.primefaces.test.selectcheckboxmenu.SelectCheckboxMenu</component-class>
+    </component>
+
+    <render-kit>
+        <renderer>
+            <component-family>org.primefaces.component</component-family>
+            <renderer-type>org.primefaces.component.AutoCompleteRenderer</renderer-type>
+            <renderer-class>org.primefaces.test.autocomplete.AutoCompleteRenderer</renderer-class>
+        </renderer>
+
+        <renderer>
+            <component-family>org.primefaces.component</component-family>
+            <renderer-type>org.primefaces.component.SelectCheckboxMenuRenderer</renderer-type>
+            <renderer-class>org.primefaces.test.selectcheckboxmenu.SelectCheckboxMenuRenderer</renderer-class>
+        </renderer>
+    </render-kit>
 </faces-config>

@@ -2,7 +2,7 @@ package org.primefaces.test;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
@@ -18,10 +18,8 @@ public class TestView implements Serializable {
     private String testString;
 
     private List<String> cars;
-    private String[] selectedViaCheckbox;
-    private String[] selectedViaMenu;
-    private String[] selectedViaAutocomplete;
-    private List<String> selectedViaAutocompleteList;
+    private String[] selectedArray;
+    private List<String> selectedList;
 
     @PostConstruct
     public void init() {
@@ -39,10 +37,8 @@ public class TestView implements Serializable {
         cars.add("Hyundai");
         cars.add("General Motors");
 
-        selectedViaCheckbox = new String[]{"BMW"};
-        selectedViaMenu = new String[]{"Toyota"};
-        selectedViaAutocomplete = new String[]{"Tesla"};
-        selectedViaAutocompleteList = new ArrayList<>(Collections.singletonList("Tesla"));
+        selectedArray = new String[]{"BMW", "Tesla"};
+        selectedList = new ArrayList<>(Arrays.asList("Hyundai", "Mercedes"));
     }
 
     public List<String> completeCar(String query) {
@@ -70,35 +66,19 @@ public class TestView implements Serializable {
         this.cars = cars;
     }
 
-    public String[] getSelectedViaCheckbox() {
-        return selectedViaCheckbox;
+    public String[] getSelectedArray() {
+        return selectedArray;
     }
 
-    public void setSelectedViaCheckbox(String[] selectedViaCheckbox) {
-        this.selectedViaCheckbox = selectedViaCheckbox;
+    public void setSelectedArray(String[] selectedArray) {
+        this.selectedArray = selectedArray;
     }
 
-    public String[] getSelectedViaMenu() {
-        return selectedViaMenu;
+    public List<String> getSelectedList() {
+        return selectedList;
     }
 
-    public void setSelectedViaMenu(String[] selectedViaMenu) {
-        this.selectedViaMenu = selectedViaMenu;
-    }
-
-    public String[] getSelectedViaAutocomplete() {
-        return selectedViaAutocomplete;
-    }
-
-    public void setSelectedViaAutocomplete(String[] selectedViaAutocomplete) {
-        this.selectedViaAutocomplete = selectedViaAutocomplete;
-    }
-
-    public List<String> getSelectedViaAutocompleteList() {
-        return selectedViaAutocompleteList;
-    }
-
-    public void setSelectedViaAutocompleteList(List<String> selectedViaAutocompleteList) {
-        this.selectedViaAutocompleteList = selectedViaAutocompleteList;
+    public void setSelectedList(List<String> selectedList) {
+        this.selectedList = selectedList;
     }
 }
