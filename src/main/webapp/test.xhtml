@@ -12,33 +12,17 @@
 
         <h1>#{testView.testString}</h1>
 
-        <h:form>
+        <h:form id="testForm">
             <h:panelGrid columns="1">
-                <p><b>p:selectCheckboxMenu</b> using String[]</p>
-
-                <p:selectCheckboxMenu value="#{testView.selectedArray}" label="Cars" multiple="true"
+                <p:selectCheckboxMenu id="multiple" value="#{testView.valueWrapper['cars']}" label="Cars" multiple="true"
                                       filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-                    <f:selectItems value="#{testView.cars}"/>
+                    <f:selectItems value="#{testView.cars}" />
                 </p:selectCheckboxMenu>
 
-                <p><b>p:selectCheckboxMenu</b> using List&lt;String&gt;</p>
+                <h:outputText value="Selected values in list size: #{testView.valueWrapper['cars'].size()}"/>
+                <h:outputText value="Selected values in list: #{testView.valueWrapper['cars']}"/>
 
-                <p:selectCheckboxMenu value="#{testView.selectedList}" label="Cars" multiple="true"
-                                      filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-                    <f:selectItems value="#{testView.cars}"/>
-                </p:selectCheckboxMenu>
-
-                <p><b>p:autoComplete</b> using String[]</p>
-
-                <p:autoComplete minQueryLength="1" value="#{testView.selectedArray}" multiple="true"
-                                completeMethod="#{testView.completeCar}" effect="fade" dropdown="true"/>
-
-                <p><b>p:autoComplete</b> using List&lt;String&gt;</p>
-
-                <p:autoComplete minQueryLength="1" value="#{testView.selectedList}" multiple="true"
-                                completeMethod="#{testView.completeCar}" effect="fade" dropdown="true"/>
-
-                <p:commandButton value="Submit" action="#{testView.save}"/>
+                <p:commandButton value="Submit" actionListener="#{testView.save}" update="@form"/>
             </h:panelGrid>
         </h:form>
     </h:body>

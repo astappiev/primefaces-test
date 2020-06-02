@@ -1,9 +1,7 @@
 package org.primefaces.test;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -19,7 +17,7 @@ public class TestView implements Serializable {
 
     private List<String> cars;
     private String[] selectedArray;
-    private List<String> selectedList;
+    private Map<String, List<String>> valueWrapper;
 
     @PostConstruct
     public void init() {
@@ -38,7 +36,10 @@ public class TestView implements Serializable {
         cars.add("General Motors");
 
         selectedArray = new String[]{"BMW", "Tesla"};
-        selectedList = new ArrayList<>(Arrays.asList("Hyundai", "Mercedes"));
+        List<String> selectedList = new ArrayList<>(Arrays.asList("Hyundai", "Mercedes"));
+
+        valueWrapper = new HashMap<>();
+        valueWrapper.put("cars", selectedList);
     }
 
     public List<String> completeCar(String query) {
@@ -74,11 +75,11 @@ public class TestView implements Serializable {
         this.selectedArray = selectedArray;
     }
 
-    public List<String> getSelectedList() {
-        return selectedList;
+    public Map<String, List<String>> getValueWrapper() {
+        return valueWrapper;
     }
 
-    public void setSelectedList(List<String> selectedList) {
-        this.selectedList = selectedList;
+    public void setValueWrapper(Map<String, List<String>> valueWrapper) {
+        this.valueWrapper = valueWrapper;
     }
 }
