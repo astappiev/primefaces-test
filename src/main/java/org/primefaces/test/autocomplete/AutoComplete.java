@@ -36,7 +36,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.FacesEvent;
 
-import org.primefaces.component.autocomplete.AutoCompleteBase;
 import org.primefaces.component.column.Column;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
