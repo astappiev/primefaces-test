@@ -18,6 +18,8 @@ public class TestView implements Serializable {
     private String testString;
 
     private List<String> cars;
+
+    private String selected;
     private String[] selectedArray;
     private List<String> selectedList;
 
@@ -64,6 +66,14 @@ public class TestView implements Serializable {
 
     public void setCars(List<String> cars) {
         this.cars = cars;
+    }
+
+    public String getSelected() {
+        return selected;
+    }
+
+    public void setSelected(final String selected) {
+        this.selected = selected;
     }
 
     public String[] getSelectedArray() {

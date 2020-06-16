@@ -28,17 +28,24 @@
                     <f:selectItems value="#{testView.cars}"/>
                 </p:selectCheckboxMenu>
 
+                <p:autoComplete id="autoComplete0" minQueryLength="1" value="#{testView.selected}"
+                                completeMethod="#{testView.completeCar}" effect="fade" dropdown="true"/>
+
                 <p><b>p:autoComplete</b> using String[]</p>
 
-                <p:autoComplete minQueryLength="1" value="#{testView.selectedArray}" multiple="true"
+                <p:autoComplete id="autoComplete1" minQueryLength="1" value="#{testView.selectedArray}" multiple="true"
                                 completeMethod="#{testView.completeCar}" effect="fade" dropdown="true"/>
 
                 <p><b>p:autoComplete</b> using List&lt;String&gt;</p>
 
-                <p:autoComplete minQueryLength="1" value="#{testView.selectedList}" multiple="true"
+                <p:autoComplete id="autoComplete2" minQueryLength="1" value="#{testView.selectedList}" multiple="true"
                                 completeMethod="#{testView.completeCar}" effect="fade" dropdown="true"/>
 
-                <p:commandButton value="Submit" action="#{testView.save}"/>
+                <h:outputText value="#{testView.selected}"/>
+                <h:outputText value="#{testView.selectedArray}"/>
+                <h:outputText value="#{testView.selectedList}"/>
+
+                <p:commandButton value="Submit" action="#{testView.save}" update="@form"/>
             </h:panelGrid>
         </h:form>
     </h:body>
