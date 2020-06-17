@@ -8,12 +8,21 @@
     <h:head>
         <title>PrimeFaces Test</title>
     </h:head>
+
     <h:body>
 
-        <h1>#{testView.testString}</h1>
         <h:form id="frmTest">
-            
+            <p:commandButton value="button" styleClass="alt-btn" action="#{testView.onSubmit()}"
+                             process="@form" partialSubmit="true" update=":updatetestpanel"/>
         </h:form>
+
+        <h:panelGroup id="updatetestpanel">
+            Some text
+        </h:panelGroup>
+
+        <ui:repeat value="#{testView.list}" var="val">
+            <h:outputText value="#{val}"/>
+        </ui:repeat>
 
     </h:body>
 </html>
